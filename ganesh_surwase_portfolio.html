@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Ganesh Navnath Surwase | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--navy:#0a0e1a;--navy2:#0d1322;--navy3:#111827;
+--blue:#2563eb;--blue2:#3b82f6;--blue3:#60a5fa;
+--gold:#f59e0b;--gold2:#fbbf24;
+--white:#f8fafc;--grey:#94a3b8;--grey2:#cbd5e1;
+--card:#131c2e;--card2:#1a2540;
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Syne',sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(37,99,235,0.18);padding:0 2rem}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em}
+.logo span{color:var(--blue2)}
+.nav-links{display:flex;gap:0.2rem;list-style:none}
+.nav-links a{color:var(--grey2);text-decoration:none;font-size:0.82rem;font-weight:500;padding:0.4rem 0.65rem;border-radius:6px;transition:all 0.2s;letter-spacing:0.01em}
+.nav-links a:hover{color:var(--white);background:rgba(59,130,246,0.12)}
+.scroll-bar{position:fixed;top:60px;left:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--gold));z-index:99;transition:width 0.1s;width:0%}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 2rem 2rem}
+.particles{position:absolute;inset:0;pointer-events:none}
+.particle{position:absolute;border-radius:50%;animation:float linear infinite}
+@keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:0.3}100%{transform:translateY(-10vh) scale(1.2);opacity:0}}
+.hero-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,0.18) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-content{max-width:1200px;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.35);padding:0.35rem 1rem;border-radius:50px;font-size:0.78rem;color:var(--blue3);margin-bottom:1.5rem;font-weight:500}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--blue3);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+.hero-name{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:0.5rem}
+.hero-name .highlight{background:linear-gradient(135deg,var(--blue2),var(--blue3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title{color:var(--gold2);font-size:1.05rem;font-weight:500;margin-bottom:1.2rem;font-family:'Syne',sans-serif}
+.typing-cursor{border-right:2px solid var(--gold2);animation:blink 0.75s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-quote{color:var(--grey);font-size:0.9rem;line-height:1.7;max-width:480px;margin-bottom:2rem;border-left:2px solid rgba(37,99,235,0.4);padding-left:1rem;font-style:italic}
+.hero-quote strong{color:var(--blue3);font-style:normal}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.75rem;border-radius:8px;font-family:'Syne',sans-serif;font-weight:600;font-size:0.88rem;cursor:pointer;text-decoration:none;transition:all 0.25s;border:none;letter-spacing:0.01em}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,99,235,0.4)}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.25)}
+.btn-outline:hover{border-color:var(--blue2);color:var(--blue3);transform:translateY(-2px)}
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.profile-frame{position:relative;width:320px;height:320px}
+.profile-ring{position:absolute;inset:-8px;border-radius:50%;border:2px solid transparent;background:linear-gradient(135deg,var(--blue),var(--gold)) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);-webkit-mask-composite:destination-out;mask-composite:exclude;animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.profile-img{width:320px;height:320px;border-radius:50%;background:var(--card2);border:3px solid var(--card2);display:flex;align-items:center;justify-content:center;font-size:7rem;overflow:hidden;position:relative}
+.profile-img-inner{width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#1e3a5f,#0f2044);display:flex;align-items:center;justify-content:center;font-size:6rem}
+.profile-badge{position:absolute;bottom:20px;right:-10px;background:var(--card);border:1.5px solid rgba(37,99,235,0.4);border-radius:12px;padding:0.6rem 1rem;font-size:0.78rem;font-weight:600;color:var(--blue3);font-family:'Syne',sans-serif;white-space:nowrap}
+.stats-row{display:flex;gap:2rem;margin-top:2.5rem}
+.stat{text-align:center}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--white)}
+.stat-num span{color:var(--gold2)}
+.stat-label{font-size:0.75rem;color:var(--grey);margin-top:0.1rem}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-tag{display:inline-block;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.25);color:var(--blue3);font-size:0.75rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:50px;margin-bottom:1rem;letter-spacing:0.05em;text-transform:uppercase;font-family:'Syne',sans-serif}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:0.5rem}
+.section-sub{color:var(--grey);font-size:0.95rem;max-width:560px;line-height:1.7;margin-bottom:3rem}
+.gold{color:var(--gold2)}
+
+/* ABOUT */
+#about{background:var(--navy2)}
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start}
+.about-text p{color:var(--grey2);font-size:0.95rem;line-height:1.8;margin-bottom:1.2rem}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1.5rem}
+.skill-tag{background:var(--card);border:1px solid rgba(37,99,235,0.2);padding:0.5rem 0.9rem;border-radius:8px;font-size:0.82rem;color:var(--grey2);font-weight:500;display:flex;align-items:center;gap:0.5rem;transition:all 0.2s}
+.skill-tag:hover{border-color:var(--blue2);color:var(--white)}
+.skill-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--blue2);flex-shrink:0}
+.interest-card{background:var(--card);border:1px solid rgba(37,99,235,0.15);border-radius:12px;padding:1.25rem;margin-bottom:0.75rem;transition:all 0.25s}
+.interest-card:hover{border-color:rgba(37,99,235,0.4);transform:translateX(4px)}
+.interest-title{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;margin-bottom:0.35rem;color:var(--white)}
+.interest-text{color:var(--grey);font-size:0.82rem;line-height:1.6}
+
+/* EDUCATION */
+#education{background:var(--navy)}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--blue),transparent)}
+.timeline-item{position:relative;margin-bottom:2.5rem;padding-left:1.5rem}
+.timeline-dot{position:absolute;left:-2.55rem;top:0.25rem;width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid var(--navy);box-shadow:0 0 0 3px rgba(37,99,235,0.3)}
+.edu-card{background:var(--card);border:1px solid rgba(37,99,235,0.15);border-radius:14px;padding:1.5rem;transition:all 0.3s}
+.edu-card:hover{border-color:rgba(37,99,235,0.4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.edu-degree{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:0.3rem}
+.edu-college{color:var(--blue3);font-size:0.9rem;font-weight:500;margin-bottom:0.2rem}
+.edu-meta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:0.75rem}
+.edu-meta span{color:var(--grey);font-size:0.8rem}
+.edu-cgpa{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);color:var(--gold2);padding:0.25rem 0.75rem;border-radius:50px;font-size:0.78rem;font-weight:600}
+.edu-desc{color:var(--grey2);font-size:0.85rem;line-height:1.7}
+
+/* EXPERIENCE */
+#experience{background:var(--navy2)}
+.exp-card{background:var(--card);border:1px solid rgba(37,99,235,0.15);border-radius:14px;padding:1.75rem;margin-bottom:1.5rem;transition:all 0.3s;position:relative;overflow:hidden}
+.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue);border-radius:3px 0 0 3px}
+.exp-card:hover{border-color:rgba(37,99,235,0.4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.exp-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem}
+.exp-role{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700}
+.exp-company{color:var(--blue3);font-size:0.9rem;font-weight:500;margin-top:0.15rem}
+.exp-duration{background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.25);color:var(--blue3);padding:0.3rem 0.8rem;border-radius:50px;font-size:0.78rem;font-weight:600;white-space:nowrap}
+.exp-responsibilities{color:var(--grey2);font-size:0.88rem;line-height:1.75;margin-bottom:1rem}
+.exp-responsibilities li{margin-bottom:0.4rem}
+.tech-chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}
+.chip{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);color:var(--blue3);font-size:0.75rem;padding:0.25rem 0.65rem;border-radius:50px;font-weight:500}
+
+/* PROJECTS */
+#projects{background:var(--navy)}
+.filter-bar{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2.5rem}
+.filter-btn{background:var(--card);border:1px solid rgba(37,99,235,0.2);color:var(--grey);font-size:0.8rem;padding:0.45rem 1rem;border-radius:50px;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;font-weight:500}
+.filter-btn.active,.filter-btn:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
+.project-card{background:var(--card);border:1px solid rgba(37,99,235,0.15);border-radius:16px;overflow:hidden;transition:all 0.35s;cursor:pointer}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.4);border-color:rgba(37,99,235,0.5)}
+.project-img{height:180px;background:linear-gradient(135deg,var(--navy2),var(--card2));display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden}
+.project-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(13,19,34,0.8))}
+.project-cat{position:absolute;top:12px;right:12px;background:rgba(37,99,235,0.85);color:#fff;font-size:0.7rem;font-weight:600;padding:0.25rem 0.65rem;border-radius:50px;font-family:'Syne',sans-serif;text-transform:uppercase;letter-spacing:0.05em}
+.project-body{padding:1.25rem}
+.project-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+.project-desc{color:var(--grey);font-size:0.83rem;line-height:1.65;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.project-links{display:flex;gap:0.5rem;flex-wrap:wrap}
+.proj-link{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.75rem;font-weight:600;color:var(--blue3);text-decoration:none;padding:0.35rem 0.75rem;border:1px solid rgba(37,99,235,0.3);border-radius:6px;transition:all 0.2s;font-family:'Syne',sans-serif}
+.proj-link:hover{background:rgba(37,99,235,0.15);border-color:var(--blue2)}
+
+/* ACHIEVEMENTS */
+#achievements{background:var(--navy2)}
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.ach-card{background:var(--card);border:1px solid rgba(245,158,11,0.15);border-radius:14px;padding:1.5rem;transition:all 0.3s;position:relative}
+.ach-card:hover{border-color:rgba(245,158,11,0.4);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.ach-icon{font-size:2rem;margin-bottom:0.75rem}
+.ach-title{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:0.3rem}
+.ach-date{color:var(--gold2);font-size:0.78rem;font-weight:600;margin-bottom:0.6rem}
+.ach-desc{color:var(--grey);font-size:0.83rem;line-height:1.65}
+
+/* CERTIFICATIONS */
+#certifications{background:var(--navy)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
+.cert-card{background:var(--card);border:1px solid rgba(37,99,235,0.15);border-radius:14px;padding:1.5rem;transition:all 0.3s;text-align:center}
+.cert-card:hover{border-color:rgba(37,99,235,0.45);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.cert-logo{width:56px;height:56px;background:var(--card2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1rem;border:1px solid rgba(37,99,235,0.2)}
+.cert-name{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;margin-bottom:0.3rem}
+.cert-issuer{color:var(--blue3);font-size:0.8rem;font-weight:500;margin-bottom:0.3rem}
+.cert-date{color:var(--grey);font-size:0.75rem;margin-bottom:1rem}
+.cert-verify{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.75rem;color:var(--gold2);font-weight:600;text-decoration:none;transition:color 0.2s}
+.cert-verify:hover{color:var(--gold)}
+
+/* RESUME */
+#resume{background:var(--navy2)}
+.resume-box{background:var(--card);border:1px solid rgba(37,99,235,0.2);border-radius:20px;padding:3rem;text-align:center;max-width:700px;margin:0 auto}
+.resume-icon{font-size:4rem;margin-bottom:1rem}
+.resume-box h3{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:0.5rem}
+.resume-box p{color:var(--grey);font-size:0.9rem;line-height:1.7;margin-bottom:2rem;max-width:440px;margin-left:auto;margin-right:auto}
+.resume-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* CONTACT */
+#contact{background:var(--navy)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem}
+.contact-info{display:flex;flex-direction:column;gap:1rem}
+.contact-item{display:flex;align-items:center;gap:1rem;background:var(--card);border:1px solid rgba(37,99,235,0.15);border-radius:12px;padding:1rem 1.25rem;transition:all 0.2s;text-decoration:none;color:var(--white)}
+.contact-item:hover{border-color:rgba(37,99,235,0.4);transform:translateX(4px)}
+.contact-icon{width:42px;height:42px;background:rgba(37,99,235,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.contact-label{font-size:0.75rem;color:var(--grey);margin-bottom:0.1rem;font-weight:500;text-transform:uppercase;letter-spacing:0.05em}
+.contact-val{font-size:0.9rem;font-weight:500}
+.form-group{margin-bottom:1.1rem}
+label{display:block;font-size:0.8rem;font-weight:600;color:var(--grey2);margin-bottom:0.4rem;font-family:'Syne',sans-serif;letter-spacing:0.03em}
+input,textarea,select{width:100%;background:var(--card);border:1px solid rgba(37,99,235,0.2);border-radius:8px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;padding:0.75rem 1rem;outline:none;transition:border-color 0.2s}
+input:focus,textarea:focus{border-color:var(--blue2)}
+input::placeholder,textarea::placeholder{color:var(--grey)}
+textarea{resize:vertical;min-height:120px}
+.form-send{width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:0.85rem;font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;cursor:pointer;transition:all 0.25s;margin-top:0.5rem}
+.form-send:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,99,235,0.4)}
+
+/* FOOTER */
+footer{background:var(--navy2);border-top:1px solid rgba(37,99,235,0.15);padding:2.5rem 2rem;text-align:center}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:0.5rem}
+.footer-logo span{color:var(--blue2)}
+.footer-links{display:flex;justify-content:center;gap:1.5rem;margin:1rem 0;flex-wrap:wrap}
+.footer-links a{color:var(--grey);font-size:0.85rem;text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--blue3)}
+.footer-copy{color:var(--grey);font-size:0.78rem;margin-top:1rem}
+.footer-copy span{color:var(--gold2)}
+
+/* BACK TO TOP */
+.back-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;cursor:pointer;border:none;transition:all 0.3s;box-shadow:0 4px 20px rgba(37,99,235,0.5);z-index:99;opacity:0;pointer-events:none}
+.back-top.visible{opacity:1;pointer-events:all}
+.back-top:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(37,99,235,0.6)}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:none}
+.fade-in-left{opacity:0;transform:translateX(-20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in-left.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .hero-visual{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .stats-row{justify-content:center}
+  .hero-quote{margin:0 auto 2rem}
+  .hero-btns{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">GN<span>S</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-glow"></div>
+  <div class="particles" id="particlesContainer"></div>
+  <div class="hero-content container">
+    <div>
+      <div class="hero-badge"><span></span> Available for Opportunities</div>
+      <h1 class="hero-name">Ganesh<br><span class="highlight">Navnath Surwase</span></h1>
+      <div class="hero-title" id="typingText"><span id="typedText"></span><span class="typing-cursor"></span></div>
+      <p class="hero-quote">"Engineering is not only about solving problems, it is about <strong>creating solutions that shape the future.</strong>"</p>
+      <div class="hero-btns">
+        <a href="#" class="btn btn-primary" id="resumeDownload">⬇ Download Resume</a>
+        <a href="#contact" class="btn btn-outline">📩 Get In Touch</a>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="stat-num">3<span>+</span></div><div class="stat-label">Years Learning</div></div>
+        <div class="stat"><div class="stat-num">8<span>+</span></div><div class="stat-label">Projects Done</div></div>
+        <div class="stat"><div class="stat-num">5<span>+</span></div><div class="stat-label">Certifications</div></div>
+        <div class="stat"><div class="stat-num">4<span>+</span></div><div class="stat-label">Internships</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="profile-frame">
+        <div class="profile-ring"></div>
+        <div class="profile-img"><div class="profile-img-inner">⚡</div></div>
+        <div class="profile-badge">⚙️ Electrical & Automation Engineer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">Passionate About <span class="gold">Engineering</span></h2>
+    <div class="about-grid">
+      <div class="about-text fade-in-left">
+        <p>I am Ganesh Navnath Surwase, a dedicated Electrical and Automation Engineer with a strong foundation in PLC Programming, Electrical Design, and Industrial Automation. I combine technical expertise with a passion for creating efficient, reliable systems.</p>
+        <p>My experience spans across automation projects, PLC-based control systems, electrical design, and emerging fields like IoT and drone technology. I approach every challenge with analytical thinking and creative problem-solving.</p>
+        <p><strong style="color:var(--white)">Career Objective:</strong> <span style="color:var(--grey)">To leverage my expertise in electrical engineering and automation to contribute to innovative industrial solutions, while continuously expanding my knowledge in smart systems and emerging technologies.</span></p>
+        <div class="skills-grid" style="margin-top:1.5rem">
+          <div class="skill-tag"><div class="dot"></div>PLC Programming</div>
+          <div class="skill-tag"><div class="dot"></div>SCADA Systems</div>
+          <div class="skill-tag"><div class="dot"></div>Electrical Design</div>
+          <div class="skill-tag"><div class="dot"></div>AutoCAD Electrical</div>
+          <div class="skill-tag"><div class="dot"></div>IoT Development</div>
+          <div class="skill-tag"><div class="dot"></div>HMI Configuration</div>
+          <div class="skill-tag"><div class="dot"></div>Motor Control</div>
+          <div class="skill-tag"><div class="dot"></div>Panel Wiring</div>
+          <div class="skill-tag"><div class="dot"></div>Python / Arduino</div>
+          <div class="skill-tag"><div class="dot"></div>Drone Technology</div>
+        </div>
+      </div>
+      <div class="fade-in" style="animation-delay:0.15s">
+        <div class="interest-card">
+          <div class="interest-title">⚡ Industrial Automation</div>
+          <div class="interest-text">PLC, SCADA, DCS systems and designing intelligent control systems for manufacturing and process industries.</div>
+        </div>
+        <div class="interest-card">
+          <div class="interest-title">🔌 Electrical Design</div>
+          <div class="interest-text">Single-line diagrams, cable schedules, panel design, and electrical documentation using AutoCAD Electrical.</div>
+        </div>
+        <div class="interest-card">
+          <div class="interest-title">🌐 IoT & Smart Systems</div>
+          <div class="interest-text">Connecting physical systems to digital platforms using sensors, microcontrollers, and cloud platforms.</div>
+        </div>
+        <div class="interest-card">
+          <div class="interest-title">🚁 Drone Technology</div>
+          <div class="interest-text">UAV design, flight controller programming, and agricultural/industrial drone applications.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-tag">Education</div>
+    <h2 class="section-title">Academic <span class="gold">Journey</span></h2>
+    <p class="section-sub">Building a strong technical foundation through quality education in electrical engineering.</p>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="edu-card">
+          <div class="edu-degree">B.E. in Electrical Engineering</div>
+          <div class="edu-college">College of Engineering (To be updated)</div>
+          <div class="edu-meta">
+            <span>🎓 University Name</span>
+            <span>📅 2020 – 2024</span>
+            <div class="edu-cgpa">🏆 CGPA: 8.5 / 10</div>
+          </div>
+          <div class="edu-desc">Specialized coursework in Power Systems, Control Systems, PLC & SCADA, Electrical Machines, Digital Electronics, and Embedded Systems. Completed multiple hands-on projects in automation and IoT.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="edu-card">
+          <div class="edu-degree">Diploma in Electrical Engineering</div>
+          <div class="edu-college">Polytechnic College (To be updated)</div>
+          <div class="edu-meta">
+            <span>🎓 Maharashtra State Board</span>
+            <span>📅 2017 – 2020</span>
+            <div class="edu-cgpa">🏆 78%</div>
+          </div>
+          <div class="edu-desc">Strong foundation in electrical fundamentals, workshop practice, circuit theory, and industrial applications. Gained hands-on experience with electrical installations and panel work.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="edu-card">
+          <div class="edu-degree">SSC (10th Standard)</div>
+          <div class="edu-college">School Name (To be updated)</div>
+          <div class="edu-meta">
+            <span>🎓 Maharashtra State Board</span>
+            <span>📅 2017</span>
+            <div class="edu-cgpa">🏆 75%</div>
+          </div>
+          <div class="edu-desc">Completed secondary education with distinction in Mathematics and Science subjects, laying the groundwork for engineering studies.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-tag">Experience</div>
+    <h2 class="section-title">Work <span class="gold">Experience</span></h2>
+    <p class="section-sub">Hands-on experience across automation, electrical design, and engineering projects.</p>
+    <div class="fade-in">
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">PLC & Automation Engineer (Internship)</div>
+            <div class="exp-company">Company Name – Pune, Maharashtra</div>
+          </div>
+          <div class="exp-duration">📅 Jan 2024 – Jun 2024</div>
+        </div>
+        <ul class="exp-responsibilities">
+          <li>Programmed Siemens S7-1200/1500 PLCs using TIA Portal for conveyor and packaging automation systems</li>
+          <li>Designed and commissioned HMI screens using Siemens WinCC for real-time process monitoring</li>
+          <li>Performed SCADA configuration for data logging and alarm management</li>
+          <li>Conducted wiring, testing, and commissioning of control panels as per electrical drawings</li>
+          <li>Prepared ladder logic programs for motor controls including DOL, Star-Delta, and VFD control</li>
+        </ul>
+        <div class="tech-chips">
+          <span class="chip">Siemens TIA Portal</span>
+          <span class="chip">S7-1200/1500</span>
+          <span class="chip">WinCC HMI</span>
+          <span class="chip">SCADA</span>
+          <span class="chip">Ladder Logic</span>
+          <span class="chip">VFDs</span>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Electrical Design Intern</div>
+            <div class="exp-company">Company Name – Mumbai, Maharashtra</div>
+          </div>
+          <div class="exp-duration">📅 Jun 2023 – Dec 2023</div>
+        </div>
+        <ul class="exp-responsibilities">
+          <li>Prepared single-line diagrams (SLD), cable schedules, and equipment layout drawings using AutoCAD Electrical</li>
+          <li>Designed MCC (Motor Control Center) and switchgear panels as per IS/IEC standards</li>
+          <li>Performed load calculations, cable sizing, and protection coordination studies</li>
+          <li>Assisted in site supervision and installation verification of electrical systems</li>
+        </ul>
+        <div class="tech-chips">
+          <span class="chip">AutoCAD Electrical</span>
+          <span class="chip">SLD Design</span>
+          <span class="chip">MCC Panels</span>
+          <span class="chip">IEC Standards</span>
+          <span class="chip">Cable Sizing</span>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">IoT Project Intern</div>
+            <div class="exp-company">Company Name – Nashik, Maharashtra</div>
+          </div>
+          <div class="exp-duration">📅 May 2022 – Aug 2022</div>
+        </div>
+        <ul class="exp-responsibilities">
+          <li>Developed IoT-based sensor monitoring systems using Arduino and ESP8266 NodeMCU</li>
+          <li>Implemented MQTT protocol for real-time data transmission to cloud dashboards</li>
+          <li>Designed PCB layouts and sensor integration circuits for environmental monitoring</li>
+        </ul>
+        <div class="tech-chips">
+          <span class="chip">Arduino</span>
+          <span class="chip">ESP8266</span>
+          <span class="chip">MQTT</span>
+          <span class="chip">IoT Cloud</span>
+          <span class="chip">PCB Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-tag">Projects</div>
+    <h2 class="section-title">Featured <span class="gold">Projects</span></h2>
+    <p class="section-sub">A showcase of real-world engineering projects spanning automation, IoT, electrical design, and drone technology.</p>
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="automation">Automation</button>
+      <button class="filter-btn" data-filter="plc">PLC Programming</button>
+      <button class="filter-btn" data-filter="electrical">Electrical Design</button>
+      <button class="filter-btn" data-filter="iot">IoT</button>
+      <button class="filter-btn" data-filter="drone">Drone Projects</button>
+    </div>
+    <div class="projects-grid" id="projectsGrid">
+      <div class="project-card fade-in" data-category="automation plc">
+        <div class="project-img">🏭<div class="project-img-overlay"></div><div class="project-cat">Automation</div></div>
+        <div class="project-body">
+          <div class="tech-chips" style="margin-bottom:0.6rem"><span class="chip">PLC</span><span class="chip">SCADA</span><span class="chip">HMI</span></div>
+          <div class="project-title">Conveyor Belt Automation System</div>
+          <div class="project-desc">Designed and programmed a fully automated conveyor belt system using Siemens S7-1200 PLC with HMI interface. The system includes fault detection, emergency stop, and production counting.</div>
+          <div class="project-links">
+            <a href="#" class="proj-link">🔗 GitHub</a>
+            <a href="#" class="proj-link">📄 Docs</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-in" data-category="iot">
+        <div class="project-img" style="background:linear-gradient(135deg,#0a1628,#1a2e4a)">🌡️<div class="project-img-overlay"></div><div class="project-cat">IoT</div></div>
+        <div class="project-body">
+          <div class="tech-chips" style="margin-bottom:0.6rem"><span class="chip">Arduino</span><span class="chip">ESP32</span><span class="chip">MQTT</span></div>
+          <div class="project-title">Smart Environmental Monitoring System</div>
+          <div class="project-desc">IoT-based real-time monitoring system for temperature, humidity, CO2, and air quality. Data is logged to cloud dashboard with threshold-based alerts via SMS and email.</div>
+          <div class="project-links">
+            <a href="#" class="proj-link">🔗 GitHub</a>
+            <a href="#" class="proj-link">🚀 Demo</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-in" data-category="drone">
+        <div class="project-img" style="background:linear-gradient(135deg,#0a2018,#0f3028)">🚁<div class="project-img-overlay"></div><div class="project-cat">Drone</div></div>
+        <div class="project-body">
+          <div class="tech-chips" style="margin-bottom:0.6rem"><span class="chip">ArduPilot</span><span class="chip">MAVLink</span><span class="chip">Python</span></div>
+          <div class="project-title">Agricultural Drone for Crop Monitoring</div>
+          <div class="project-desc">Built a quad-rotor drone for agricultural surveying and crop health monitoring using multispectral imaging and GPS waypoint navigation for autonomous flight paths.</div>
+          <div class="project-links">
+            <a href="#" class="proj-link">🔗 GitHub</a>
+            <a href="#" class="proj-link">📄 Report</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-in" data-category="electrical">
+        <div class="project-img" style="background:linear-gradient(135deg,#1a1000,#2a1800)">⚡<div class="project-img-overlay"></div><div class="project-cat">Electrical</div></div>
+        <div class="project-body">
+          <div class="tech-chips" style="margin-bottom:0.6rem"><span class="chip">AutoCAD</span><span class="chip">ETAP</span><span class="chip">IEC</span></div>
+          <div class="project-title">Industrial Power Distribution Design</div>
+          <div class="project-desc">Complete electrical design for a 100KVA industrial plant including SLD, cable schedules, load calculation, MCC panel design, and protection coordination study.</div>
+          <div class="project-links">
+            <a href="#" class="proj-link">📄 Drawings</a>
+            <a href="#" class="proj-link">⬇ Download</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-in" data-category="plc automation">
+        <div class="project-img" style="background:linear-gradient(135deg,#100a1a,#1e0f2e)">🤖<div class="project-img-overlay"></div><div class="project-cat">PLC</div></div>
+        <div class="project-body">
+          <div class="tech-chips" style="margin-bottom:0.6rem"><span class="chip">Allen Bradley</span><span class="chip">Studio 5000</span><span class="chip">RSLogix</span></div>
+          <div class="project-title">Robotic Arm Control via PLC</div>
+          <div class="project-desc">Programmed a 4-axis robotic arm using Allen Bradley Logix5000 PLC with position control, sequence programming, and safety interlocks for pick-and-place operations.</div>
+          <div class="project-links">
+            <a href="#" class="proj-link">🔗 GitHub</a>
+            <a href="#" class="proj-link">🎬 Video</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card fade-in" data-category="iot automation">
+        <div class="project-img" style="background:linear-gradient(135deg,#0a1020,#0f1830)">💡<div class="project-img-overlay"></div><div class="project-cat">IoT + Auto</div></div>
+        <div class="project-body">
+          <div class="tech-chips" style="margin-bottom:0.6rem"><span class="chip">Raspberry Pi</span><span class="chip">Node-RED</span><span class="chip">Modbus</span></div>
+          <div class="project-title">Smart Factory Dashboard</div>
+          <div class="project-desc">Developed a real-time factory monitoring dashboard using Node-RED and Raspberry Pi with Modbus TCP/IP communication to PLC, displaying OEE, production metrics, and energy consumption.</div>
+          <div class="project-links">
+            <a href="#" class="proj-link">🔗 GitHub</a>
+            <a href="#" class="proj-link">🚀 Live</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-tag">Achievements</div>
+    <h2 class="section-title">Awards & <span class="gold">Achievements</span></h2>
+    <p class="section-sub">Recognition earned through dedication, innovation, and excellence in engineering.</p>
+    <div class="ach-grid">
+      <div class="ach-card fade-in">
+        <div class="ach-icon">🥇</div>
+        <div class="ach-title">Best Project Award – Automation</div>
+        <div class="ach-date">🏆 March 2024</div>
+        <div class="ach-desc">Won 1st place at the college-level project competition for the Conveyor Belt Automation System with advanced fault detection capabilities.</div>
+      </div>
+      <div class="ach-card fade-in">
+        <div class="ach-icon">🚁</div>
+        <div class="ach-title">Drone Design Challenge Winner</div>
+        <div class="ach-date">🏆 November 2023</div>
+        <div class="ach-desc">Won regional drone design competition for an agricultural drone concept with autonomous navigation and multispectral imaging for crop health monitoring.</div>
+      </div>
+      <div class="ach-card fade-in">
+        <div class="ach-icon">📜</div>
+        <div class="ach-title">Paper Presentation – IEEE Conference</div>
+        <div class="ach-date">🏆 September 2023</div>
+        <div class="ach-desc">Presented research paper on "Smart Grid Integration with IoT-based Energy Management Systems" at regional IEEE student conference.</div>
+      </div>
+      <div class="ach-card fade-in">
+        <div class="ach-icon">⭐</div>
+        <div class="ach-title">Academic Excellence Award</div>
+        <div class="ach-date">🏆 June 2023</div>
+        <div class="ach-desc">Recognized for consistent academic performance and active participation in technical events, workshops, and extracurricular engineering activities.</div>
+      </div>
+      <div class="ach-card fade-in">
+        <div class="ach-icon">🔬</div>
+        <div class="ach-title">TECHFEST Hackathon – Runner Up</div>
+        <div class="ach-date">🏆 February 2023</div>
+        <div class="ach-desc">Secured runner-up position in 24-hour hackathon focused on smart industrial solutions, developing an IoT-based predictive maintenance prototype.</div>
+      </div>
+      <div class="ach-card fade-in">
+        <div class="ach-icon">🌍</div>
+        <div class="ach-title">NSS Special Camp Volunteer</div>
+        <div class="ach-date">🏆 January 2022</div>
+        <div class="ach-desc">Organized and led electrical safety awareness programs for rural communities, conducting workshops on basic electrical safety and LED retrofitting.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-tag">Certifications</div>
+    <h2 class="section-title">Professional <span class="gold">Certifications</span></h2>
+    <p class="section-sub">Continuously upskilling through recognized professional development programs.</p>
+    <div class="cert-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-logo">🏭</div>
+        <div class="cert-name">Siemens TIA Portal – PLC Programming</div>
+        <div class="cert-issuer">Siemens Digital Industries</div>
+        <div class="cert-date">📅 2024</div>
+        <a href="#" class="cert-verify">✅ Verify Certificate →</a>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-logo">⚡</div>
+        <div class="cert-name">AutoCAD Electrical – Design Professional</div>
+        <div class="cert-issuer">Autodesk</div>
+        <div class="cert-date">📅 2023</div>
+        <a href="#" class="cert-verify">✅ Verify Certificate →</a>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-logo">🌐</div>
+        <div class="cert-name">IoT & Embedded Systems Fundamentals</div>
+        <div class="cert-issuer">NPTEL – IIT Madras</div>
+        <div class="cert-date">📅 2023</div>
+        <a href="#" class="cert-verify">✅ Verify Certificate →</a>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-logo">🐍</div>
+        <div class="cert-name">Python for Automation & Data Analysis</div>
+        <div class="cert-issuer">Coursera / Google</div>
+        <div class="cert-date">📅 2023</div>
+        <a href="#" class="cert-verify">✅ Verify Certificate →</a>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-logo">🔌</div>
+        <div class="cert-name">Electrical Safety & Hazard Management</div>
+        <div class="cert-issuer">National Safety Council</div>
+        <div class="cert-date">📅 2022</div>
+        <a href="#" class="cert-verify">✅ Verify Certificate →</a>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-logo">🚁</div>
+        <div class="cert-name">Drone Pilot License – DGCA Category</div>
+        <div class="cert-issuer">DGCA – Government of India</div>
+        <div class="cert-date">📅 2023</div>
+        <a href="#" class="cert-verify">✅ Verify Certificate →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container">
+    <div class="section-tag">Resume</div>
+    <h2 class="section-title" style="text-align:center">My <span class="gold">Resume</span></h2>
+    <p class="section-sub" style="margin:0 auto 2rem;text-align:center">Download or preview my complete professional resume with all experience, skills, and achievements.</p>
+    <div class="resume-box fade-in">
+      <div class="resume-icon">📄</div>
+      <h3>Ganesh Navnath Surwase</h3>
+      <p>Electrical Engineer | Automation Engineer | PLC Programmer | Electrical Design Engineer<br>Updated: 2024 | Format: PDF | Size: ~500KB</p>
+      <div class="resume-btns">
+        <a href="#" class="btn btn-primary" id="resumeDownload2">⬇ Download Resume</a>
+        <button class="btn btn-outline" onclick="alert('Resume preview would open here. Upload your PDF to Firebase Storage and link it.')">👁 Preview Resume</button>
+        <button class="btn btn-outline" onclick="window.print()">🖨 Print Resume</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-tag">Contact</div>
+    <h2 class="section-title">Get In <span class="gold">Touch</span></h2>
+    <p class="section-sub">Open to opportunities in automation, electrical design, and engineering roles. Let's connect!</p>
+    <div class="contact-grid">
+      <div class="contact-info fade-in-left">
+        <a href="mailto:ganesh.surwase@email.com" class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div><div class="contact-label">Email</div><div class="contact-val">ganesh.surwase@email.com</div></div>
+        </a>
+        <a href="tel:+919876543210" class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div><div class="contact-label">Phone</div><div class="contact-val">+91 98765 43210</div></div>
+        </a>
+        <a href="https://linkedin.com/in/ganesh-surwase" target="_blank" class="contact-item">
+          <div class="contact-icon">💼</div>
+          <div><div class="contact-label">LinkedIn</div><div class="contact-val">linkedin.com/in/ganesh-surwase</div></div>
+        </a>
+        <a href="https://github.com/ganesh-surwase" target="_blank" class="contact-item">
+          <div class="contact-icon">💻</div>
+          <div><div class="contact-label">GitHub</div><div class="contact-val">github.com/ganesh-surwase</div></div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><div class="contact-label">Location</div><div class="contact-val">Virar, Maharashtra, India</div></div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div style="background:var(--card);border:1px solid rgba(37,99,235,0.2);border-radius:16px;padding:2rem">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Enter your full name" id="cName"/>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email" id="cEmail"/>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" placeholder="What is this about?" id="cSubject"/>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Write your message here..." id="cMessage"></textarea>
+          </div>
+          <button class="form-send" id="sendBtn">🚀 Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">GN<span>S</span></div>
+  <p style="color:var(--grey);font-size:0.85rem;margin-top:0.25rem">Electrical Engineer | Automation Engineer | PLC Programmer</p>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2024 Ganesh Navnath Surwase. Built with <span>♥</span> and Engineering Passion.</div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// PARTICLES
+const pc = document.getElementById('particlesContainer');
+for(let i=0;i<25;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  const size=Math.random()*3+1;
+  p.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;background:rgba(${Math.random()>0.5?'37,99,235':'245,158,11'},${Math.random()*0.5+0.2});animation-duration:${Math.random()*15+8}s;animation-delay:${Math.random()*10}s`;
+  pc.appendChild(p);
+}
+
+// TYPING ANIMATION
+const titles=['Electrical Engineer','Automation Engineer','PLC Programmer','Electrical Design Engineer','IoT Developer','Drone Technologist'];
+let ti=0,ci=0,deleting=false;
+const el=document.getElementById('typedText');
+function type(){
+  const cur=titles[ti];
+  if(!deleting){
+    el.textContent=cur.slice(0,++ci);
+    if(ci===cur.length){deleting=true;setTimeout(type,1800);return;}
+  } else {
+    el.textContent=cur.slice(0,--ci);
+    if(ci===0){deleting=false;ti=(ti+1)%titles.length;}
+  }
+  setTimeout(type,deleting?60:100);
+}
+type();
+
+// SCROLL BAR
+window.addEventListener('scroll',()=>{
+  const pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  document.getElementById('scrollBar').style.width=pct+'%';
+  document.getElementById('backTop').classList.toggle('visible',window.scrollY>300);
+});
+
+// INTERSECTION OBSERVER
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.12});
+document.querySelectorAll('.fade-in,.fade-in-left').forEach(el=>observer.observe(el));
+
+// PROJECT FILTER
+document.getElementById('filterBar').addEventListener('click',e=>{
+  const btn=e.target.closest('.filter-btn');
+  if(!btn)return;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const filter=btn.dataset.filter;
+  document.querySelectorAll('.project-card').forEach(card=>{
+    const cats=card.dataset.category||'';
+    card.style.display=(filter==='all'||cats.includes(filter))?'':'none';
+  });
+});
+
+// CONTACT FORM
+document.getElementById('sendBtn').addEventListener('click',()=>{
+  const n=document.getElementById('cName').value.trim();
+  const e=document.getElementById('cEmail').value.trim();
+  const s=document.getElementById('cSubject').value.trim();
+  const m=document.getElementById('cMessage').value.trim();
+  if(!n||!e||!s||!m){alert('Please fill in all fields.');return;}
+  document.getElementById('sendBtn').textContent='✅ Message Sent! (Connect EmailJS/Formspree to enable real sending)';
+  document.getElementById('sendBtn').style.background='#059669';
+});
+
+// RESUME DOWNLOAD
+document.querySelectorAll('#resumeDownload,#resumeDownload2').forEach(btn=>{
+  btn.addEventListener('click',e=>{e.preventDefault();alert('Upload your resume PDF to Firebase Storage and replace this URL to enable download.');});
+});
+</script>
+</body>
+</html>
